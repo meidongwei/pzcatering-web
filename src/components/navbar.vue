@@ -7,11 +7,10 @@
     <div class="navbar">
       <Menu mode="horizontal" theme="dark" active-name="1">
         <MenuItem v-for="(item, index) in navbarList"
-          :key="index" :name="item.nameNum">
-          <router-link :to="{ name: item.url }" tag="span">
+          :key="index" :name="item.nameNum"
+          @click.native="toPage(index)">
             <Icon :type="item.icon"></Icon>
             {{ item.title }}
-          </router-link>
         </MenuItem>
       </Menu>
     </div>
@@ -73,7 +72,9 @@ export default {
     }
   },
   methods: {
-
+    toPage (index) {
+      this.$router.push({ name: this.navbarList[index].url })
+    }
   }
 }
 </script>
