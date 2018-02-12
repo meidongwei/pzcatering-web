@@ -1,7 +1,6 @@
 <template>
   <div class="layout">
     <navbar></navbar>
-    <!-- <router-link :to="{ name: 'zuzhi'}">to zuzhi</router-link> -->
     <router-view></router-view>
   </div>
 </template>
