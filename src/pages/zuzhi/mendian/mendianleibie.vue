@@ -29,6 +29,7 @@ export default {
   data () {
     return {
       value: '',
+      formInline: {},
       columns1: [
         {
           title: '序号',

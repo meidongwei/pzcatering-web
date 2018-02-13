@@ -21,4 +21,15 @@ body {
 .ivu-menu-vertical.ivu-menu-light:after {
   width: 0;
 }
+#abc th .ivu-table-cell,
+#abc .ivu-table-cell {
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: normal;
+  word-break: break-all;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
 </style>

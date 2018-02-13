@@ -1,5 +1,7 @@
 <template>
-  <h1>quyu</h1>
+  <div>
+    <h1>quyu</h1>
+  </div>
 </template>
 
 <script>
