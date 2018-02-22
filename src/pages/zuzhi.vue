@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div class="slider">
-      <h2 class="m-h2">商户总部</h2>
+      <h2 class="slider-h2">商户总部</h2>
       <Menu ref="leftMenu" :active-name="activeName" :open-names="[openName]">
         <Submenu :name="item.openName"
           v-for="(item, index) in subList" :key="index">
@@ -16,7 +16,7 @@
       </Menu>
     </div>
     <div class="content">
-      <Breadcrumb style="margin: 15px 15px 0 15px;">
+      <Breadcrumb class="content-breadcrumb">
         <BreadcrumbItem to="/">组织架构</BreadcrumbItem>
         <BreadcrumbItem to="/">{{ breadCrumbTitle }}</BreadcrumbItem>
         <BreadcrumbItem>{{ breadCrumbTitle1 }}</BreadcrumbItem>
@@ -111,30 +111,4 @@ export default {
 </script>
 
 <style scoped>
-.container {
-  flex: 1;
-  display: flex;
-}
-.slider {
-  flex: 0 0 16em;
-  background-color: #fff;
-}
-.content {
-  flex: 1;
-  position: relative;
-  min-width: 1000px;
-}
-.footer {
-  background-color: #fff;
-  padding: 15px;
-  text-align: center;
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-}
-.m-h2 {
-  padding: 15px 0;
-  text-align: center;
-  border-bottom: 1px solid #f2f2f2;
-}
 </style>

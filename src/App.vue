@@ -1,5 +1,7 @@
 <template>
-  <layout></layout>
+  <router-view>
+    <layout></layout>
+  </router-view>
 </template>
 <script>
 import layout from '@/components/layout'

@@ -1,5 +1,5 @@
 <template>
-  <h1>member</h1>
+  <h1>jinxiaocun</h1>
 </template>
 
 <script>

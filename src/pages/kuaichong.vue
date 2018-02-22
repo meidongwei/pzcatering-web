@@ -1,5 +1,5 @@
 <template>
-  <h1>yunying</h1>
+  <h1>kuaichong</h1>
 </template>
 
 <script>

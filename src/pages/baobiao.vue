@@ -1,5 +1,5 @@
 <template>
-  <h1>jinxiaocun</h1>
+  <h1>baobiao</h1>
 </template>
 
 <script>

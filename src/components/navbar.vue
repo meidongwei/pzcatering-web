@@ -16,7 +16,7 @@
     </div>
     <div class="login">
       <Button type="text">系统管理员</Button>
-      <Button type="text">退出</Button>
+      <Button type="text" @click="logout">退出</Button>
     </div>
   </div>
 </template>
@@ -52,20 +52,26 @@ export default {
           url: 'guazhang'
         },
         {
-          title: '会员管理',
+          title: '快充',
           nameNum: '5',
+          icon: 'ios-paper',
+          url: 'kuaichong'
+        },
+        {
+          title: '会员管理',
+          nameNum: '6',
           icon: 'ios-paper',
           url: 'member'
         },
         {
           title: '进销存',
-          nameNum: '6',
+          nameNum: '7',
           icon: 'ios-paper',
           url: 'jinxiaocun'
         },
         {
           title: '报表查询',
-          nameNum: '7',
+          nameNum: '8',
           icon: 'ios-paper',
           url: 'baobiao'
         }
@@ -75,6 +81,9 @@ export default {
   methods: {
     toPage (index) {
       this.$router.push({ name: this.navbarList[index].url })
+    },
+    logout () {
+      this.$router.push({ name: 'login' })
     },
     // 当前页刷新后，activeName 状态不变
     activeNameOfList () {
