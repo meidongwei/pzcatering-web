@@ -14,6 +14,9 @@ Vue.use(iView)
 // 引入 vuex
 import store from './store/index.js'
 
+import Bus from './bus.js'
+Vue.use(Bus)
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

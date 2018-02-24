@@ -1,6 +1,6 @@
 <template>
   <div class="layout">
-    <navbar></navbar>
+    <Navbar></Navbar>
     <router-view></router-view>
     <div class="footer">
       <p>品智餐饮管理系统 版本号V2.2</p>
@@ -9,10 +9,10 @@
 </template>
 
 <script>
-import navbar from '@/components/navbar'
+import Navbar from '@/components/navbar'
 export default {
   components: {
-    navbar
+    Navbar
   }
 }
 </script>
@@ -57,5 +57,6 @@ export default {
   position: fixed;
   bottom: 0;
   width: 100%;
+  z-index: 999;
 }
 </style>

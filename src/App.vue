@@ -13,6 +13,12 @@ export default {
 }
 </script>
 <style>
+/* 侧边栏导航隐藏x轴滚动条及多余部分 */
+html,
+body {
+  overflow-x: hidden;
+}
+/* --- end --- */
 body {
   background-color: #f5f7f9;
 }

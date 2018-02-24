@@ -1,6 +1,6 @@
 <template>
-  <div class="container">
-    <div class="slider">
+  <div class="container row-offcanvas row-offcanvas-left" :class="{'active': isShowSlideNav}">
+    <div class="slider sidebar-offcanvas">
       <h2 class="slider-h2">商户总部</h2>
       <Menu ref="leftMenu" :active-name="activeName" :open-names="[openName]">
         <Submenu :name="item.openName"
@@ -22,9 +22,6 @@
         <BreadcrumbItem>{{ breadCrumbTitle1 }}</BreadcrumbItem>
       </Breadcrumb>
       <router-view></router-view>
-      <div class="footer">
-        <p>品智餐饮管理系统 版本号V2.2</p>
-      </div>
     </div>
   </div>
 </template>
@@ -33,6 +30,7 @@
 export default {
   data () {
     return {
+      isShowSlideNav: false,
       breadCrumbTitle: '',
       breadCrumbTitle1: '',
       activeName: '',
@@ -106,9 +104,44 @@ export default {
   },
   mounted () {
     this.activeNameOfList()
+    this.$bus.on('handleShowSlideNav', () => {
+      this.isShowSlideNav = !this.isShowSlideNav
+    })
   }
 }
 </script>
 
 <style scoped>
+.showBtn {
+  display: none;
+}
+
+@media (max-width: 1242px) {
+  .content {
+    left: 0;
+  }
+  .showBtn {
+    display: block;
+  }
+  .row-offcanvas {
+    position: relative;
+    transition: all .25s ease-out;
+  }
+  .row-offcanvas-left {
+    left: 0;
+  }
+  .row-offcanvas-left .sidebar-offcanvas {
+    left: -240px;
+  }
+  .row-offcanvas-left.active {
+    left: 240px;
+  }
+  .sidebar-offcanvas {
+    position: absolute;
+    top: 0;
+  }
+}
+
+
+
 </style>

@@ -14,7 +14,8 @@
               </Input>
             </FormItem>
             <FormItem prop="password">
-              <Input size="large" type="password" v-model="formInline.password" placeholder="密码">
+              <Input size="large" type="password" v-model="formInline.password"
+                @keyup.13.native="handleSubmit('formInline')" placeholder="密码">
                 <Icon type="ios-locked-outline" slot="prepend"></Icon>
               </Input>
             </FormItem>
@@ -69,7 +70,7 @@ export default {
       this.$refs[name].validate((valid) => {
         if (valid) {
           if (this.formInline.user === 'admin'
-            && this.formInline.password === '123456') {
+            && this.formInline.password === '123123') {
             this.$Message.success('登录成功!')
             this.$router.push({ name: 'layout' })
           } else {

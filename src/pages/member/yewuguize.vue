@@ -1,5 +1,5 @@
 <template>
-  <h1>yewuguize</h1>
+  <router-view></router-view>
 </template>
 
 <script>

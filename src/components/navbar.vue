@@ -1,10 +1,20 @@
 <template>
   <div class="header">
     <div class="header-logo">
-      <img src="@/assets/logo.png" alt="logo">
-      <span>品智餐饮管理系统</span>
+      <Button @click="handleShowSlideNav" class="openBtn" type="text"
+        style="padding:6px;">
+        <Icon type="navicon-round" size="23"></Icon>
+      </Button>
+      <div>
+        <img src="@/assets/logo.png" alt="logo">
+        <span>品智餐饮管理系统</span>
+      </div>
+      <Button @click="handleShowNav" class="openBtn" type="text"
+        style="padding:6px;">
+        <Icon type="more" size="23"></Icon>
+      </Button>
     </div>
-    <div class="navbar">
+    <div class="navbar" :class="isShowNav ?'showNav':'hiddenNav'">
       <Menu mode="horizontal" theme="light" :active-name="activeName">
         <MenuItem v-for="(item, index) in navbarList"
           :key="index" :name="item.nameNum"
@@ -14,8 +24,8 @@
         </MenuItem>
       </Menu>
     </div>
-    <div class="login">
-      <Button type="text">系统管理员</Button>
+    <div class="login" :class="isShowNav ?'showNav':'hiddenNav'">
+      <Button type="text">admin</Button>
       <Button type="text" @click="logout">退出</Button>
     </div>
   </div>
@@ -25,6 +35,7 @@
 export default {
   data () {
     return {
+      isShowNav: true,
       activeName: '1',
       navbarList: [
         {
@@ -81,6 +92,7 @@ export default {
   methods: {
     toPage (index) {
       this.$router.push({ name: this.navbarList[index].url })
+      this.isShowNav = !this.isShowNav
     },
     logout () {
       this.$router.push({ name: 'login' })
@@ -93,6 +105,12 @@ export default {
           this.activeName = this.navbarList[i].nameNum
         }
       }
+    },
+    handleShowNav () {
+      this.isShowNav = !this.isShowNav
+    },
+    handleShowSlideNav () {
+      this.$bus.emit('handleShowSlideNav')
     }
   },
   mounted () {
@@ -103,29 +121,97 @@ export default {
 
 <style scoped>
 .header {
-  height: 60px;
   background-color: #fff;
   color: #fff;
   display: flex;
   align-items: center;
   padding: 0 15px;
   justify-content: space-between;
-  min-width: 1200px;
   box-shadow: 1px 1px 1px #eeeeee;
   z-index: 1;
 }
 .header-logo {
+  height: 60px;
   width: 200px;
   display: flex;
   align-items: center;
 }
-.header-logo > span {
+.openBtn {
+  display: none;
+}
+.header-logo div {
+  display: flex;
+  align-items: center;
+}
+.header-logo span {
   font-size: 18px;
   color: #495060;
   font-weight: bold;
 }
-.header-logo > img {
+.header-logo img {
   width: 30px;
   margin-right: 10px;
+}
+.navbar {
+  display: flex;
+  justify-content: center;
+}
+.login {
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+@media (max-width: 1242px) {
+  .header {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  .header-logo {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+  .openBtn {
+    display: block;
+  }
+  .navbar {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    height: 100%;
+    border-top: 1px solid #f2f2f2;
+  }
+  .navbar ul {
+    height: 100%;
+    width: 100%;
+  }
+  .navbar li {
+    width: 25%;
+  }
+  .login {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    border-top: 1px solid #f2f2f2;
+  }
+  .showNav {
+    display: flex;
+  }
+  .hiddenNav {
+    display: none;
+  }
+}
+@media (max-width: 992px) {
+  .navbar li {
+    width: 33.3%;
+  }
+}
+@media (max-width: 768px) {
+  .navbar li {
+    width: 50%;
+  }
 }
 </style>
