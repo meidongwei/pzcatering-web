@@ -1,6 +1,6 @@
 <template>
   <Row>
-    <Col span="10">
+    <Col :lg="12" :md="12" :xs="24">
       <div style="padding: 20px">
         <Card :bordered="false" style="height: 350px;">
           <p slot="title">商户信息</p>
@@ -25,7 +25,7 @@
         </Card>
       </div>
     </Col>
-    <Col span="10">
+    <Col :lg="12" :md="12" :xs="24">
       <div style="padding: 20px">
         <Card :bordered="false" style="height: 350px;">
           <p slot="title">商户主视觉图片</p>

@@ -8,8 +8,7 @@
             placeholder="品牌名称/编码"></Input>
           <Button type="ghost">添加</Button>
         </div>
-        <Table border :columns="columns1" :data="data2"
-          stye="width:100%;"></Table>
+        <Table border :columns="columns1" :data="data2" width="100%"></Table>
         <div style="margin-top:10px;display:flex;justify-content:flex-end;">
           <Page :total="100" show-elevator></Page>
         </div>
@@ -30,7 +29,8 @@ export default {
         },
         {
           title: '品牌编码',
-          key: 'brandno'
+          key: 'brandno',
+          className: 'demo-table-info-column'
         },
         {
           title: '品牌名称',
@@ -190,5 +190,10 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
+.ivu-table th.demo-table-info-column,
+.ivu-table td.demo-table-info-column {
+  background-color: #2db7f5;
+  color: #fff;
+}
 </style>

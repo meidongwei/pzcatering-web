@@ -119,6 +119,7 @@ export default {
 @media (max-width: 1242px) {
   .content {
     left: 0;
+    padding-bottom: 50px;
   }
   .showBtn {
     display: block;

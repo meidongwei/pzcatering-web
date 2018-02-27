@@ -35,7 +35,7 @@
 export default {
   data () {
     return {
-      isShowNav: true,
+      isShowNav: false,
       activeName: '1',
       navbarList: [
         {

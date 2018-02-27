@@ -14,8 +14,7 @@
           </Form>
           <Button type="ghost">添加</Button>
         </div>
-        <Table border :columns="columns1" :data="data1"
-          stye="width:100%;"></Table>
+        <Table border :columns="columns1" :data="data1" width="100%"></Table>
         <div style="margin-top:10px;display:flex;justify-content:flex-end;">
           <Page :total="100" show-elevator></Page>
         </div>
